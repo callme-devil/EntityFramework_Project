@@ -1,25 +1,26 @@
 ﻿using EntityFramework_Project.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using EntityFramework_Project.Context;
 
 namespace EntityFramework_Project.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ShopContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ShopContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var item = new Product("Csgo" , 1000);
+            //_context.Products.Add(item);
+            _context.Add(item);
+            _context.SaveChanges();
+
             return View();
         }
 

@@ -13,11 +13,11 @@ namespace EntityFramework_Project.Models
         public DateTime CreationDate { get; set; }
 
 
-        public Product(string name, double unitPrice, DateTime creationDate)
+        public Product(string name, double unitPrice)
         {
             Name = name;
             UnitPrice = unitPrice;
-            CreationDate = creationDate;
+            CreationDate = DateTime.Now;
         }
     }
 
