@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EntityFramework_Project.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntityFramework_Project
 {
@@ -23,6 +25,11 @@ namespace EntityFramework_Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //var connectionString = Configuration.GetSection("ConnectionStrings")["EntityFrameworkCore_projectDb"];
+            var connectionString = Configuration.GetConnectionString("EntityFrameworkCore_projectDb");
+            services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
+
             services.AddControllersWithViews();
         }
 
