@@ -32,9 +32,18 @@ namespace EntityFramework_Project.Controllers
             //var product = _context.Products.Single(x => x.Id == 2);//throw exception if more than 1 && cant return null
 
             //var product = _context.Products.Find(2); //Get primary key (Id) if item exists in ram show that else Use Database query (high performance)
-            var product = _context.Products.Where(x => x.UnitPrice < 1000).ToList();
+            //var product = _context.Products.Where(x => x.UnitPrice < 1000).ToList();
 
-            return View(product);
+            //var maxUP = _context.Products.Max(x => x.UnitPrice);
+            //var minUP = _context.Products.Min(x => x.UnitPrice);
+            //var PCount = _context.Products.Count();
+            //var PCount1 = _context.Products.Count(x=>x.UnitPrice <1000);
+            //var exist = _context.Products.Any(x => x.Name == "Apex");
+
+
+
+
+            return View();
         }
 
         public IActionResult Privacy()
