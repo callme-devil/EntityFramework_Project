@@ -1,6 +1,7 @@
 ﻿using EntityFramework_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 using EntityFramework_Project.Context;
 
 namespace EntityFramework_Project.Controllers
@@ -20,6 +21,17 @@ namespace EntityFramework_Project.Controllers
             //_context.Products.Add(item);
             _context.Add(item);
             _context.SaveChanges();
+
+            //var product = _context.Products.ToList();// Select all
+            //var product = _context.Products.FirstOrDefault(); //first record of database
+            //var product = _context.Products.FirstOrDefault(x => x.Id == 1); //first record of sequence
+            //var product = _context.Products.FirstOrDefault(x => x.Id == 32255325); //return null
+            //var product = _context.Products.First(x => x.Id == 121324); //exception
+
+            //var product = _context.Products.SingleOrDefault(x => x.Id == 1);//throw exception if more than 1 item founded && can return null if not founded
+            //var product = _context.Products.Single(x => x.Id == 2);//throw exception if more than 1 && cant return null
+
+            //var product = _context.Products.Find(2); //Get primary key (Id) if item exists in ram show that else Use Database query (high performance)
 
             return View();
         }
