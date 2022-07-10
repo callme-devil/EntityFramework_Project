@@ -17,10 +17,10 @@ namespace EntityFramework_Project.Controllers
 
         public IActionResult Index()
         {
-            var item = new Product("Csgo" , 1000);
-            //_context.Products.Add(item);
-            _context.Add(item);
-            _context.SaveChanges();
+            //var item = new Product("Dota 2", 800);
+            ////_context.Products.Add(item);
+            //_context.Add(item);
+            //_context.SaveChanges();
 
             //var product = _context.Products.ToList();// Select all
             //var product = _context.Products.FirstOrDefault(); //first record of database
@@ -32,8 +32,9 @@ namespace EntityFramework_Project.Controllers
             //var product = _context.Products.Single(x => x.Id == 2);//throw exception if more than 1 && cant return null
 
             //var product = _context.Products.Find(2); //Get primary key (Id) if item exists in ram show that else Use Database query (high performance)
+            var product = _context.Products.Where(x => x.UnitPrice < 1000).ToList();
 
-            return View();
+            return View(product);
         }
 
         public IActionResult Privacy()

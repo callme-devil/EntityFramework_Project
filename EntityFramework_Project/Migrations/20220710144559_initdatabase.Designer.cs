@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFramework_Project.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20220709161938_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20220710144559_initdatabase")]
+    partial class initdatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,9 +23,9 @@ namespace EntityFramework_Project.Migrations
 
             modelBuilder.Entity("EntityFramework_Project.Models.Product", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreationDate")
