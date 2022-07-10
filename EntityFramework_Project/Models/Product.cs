@@ -13,6 +13,8 @@ namespace EntityFramework_Project.Models
 
         public DateTime CreationDate { get; set; }
 
+        public bool IsDeleted { get; set; }
+
 
         public Product(string name, double unitPrice)
         {

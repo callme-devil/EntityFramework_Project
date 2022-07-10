@@ -32,7 +32,7 @@ namespace EntityFramework_Project.Controllers
             //var product = _context.Products.Single(x => x.Id == 2);//throw exception if more than 1 && cant return null
 
             //var product = _context.Products.Find(2); //Get primary key (Id) if item exists in ram show that else Use Database query (high performance)
-            //var product = _context.Products.Where(x => x.UnitPrice < 1000).ToList();
+            var product = _context.Products.Where(x => x.UnitPrice < 1000 && x.IsDeleted == false).ToList();
 
             //var maxUP = _context.Products.Max(x => x.UnitPrice);
             //var minUP = _context.Products.Min(x => x.UnitPrice);
@@ -40,10 +40,26 @@ namespace EntityFramework_Project.Controllers
             //var PCount1 = _context.Products.Count(x=>x.UnitPrice <1000);
             //var exist = _context.Products.Any(x => x.Name == "Apex");
 
+            //Physical Delete
+            //var item = _context.Products.FirstOrDefault(x => x.Id == 3);
+            //if (item != null)
+            //{
+            //    _context.Products.Remove(item);
+            //    _context.SaveChanges();
+            //}
+
+
+            //Logical Remove
+            //var item = _context.Products.FirstOrDefault(x => x.Id == 2);
+            //if (item != null)
+            //{
+            //    item.IsDeleted = true;
+            //    _context.SaveChanges();
+            //}
 
 
 
-            return View();
+            return View(product);
         }
 
         public IActionResult Privacy()
