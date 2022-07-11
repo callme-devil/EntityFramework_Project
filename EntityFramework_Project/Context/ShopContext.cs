@@ -9,6 +9,8 @@ namespace EntityFramework_Project.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<AuthorBiography> AuthorBiographies { get; set; }
 
         public ShopContext(DbContextOptions <ShopContext> options): base(options)
         {
@@ -20,6 +22,8 @@ namespace EntityFramework_Project.Context
         {
             modelBuilder.ApplyConfiguration(new ProductMapping());
             modelBuilder.ApplyConfiguration(new ProductCategoryMapping());
+            modelBuilder.ApplyConfiguration(new AuthorMapping());
+            modelBuilder.ApplyConfiguration(new AuthorBiographyMapping());
             base.OnModelCreating(modelBuilder);
         }
     }
