@@ -13,6 +13,11 @@ namespace EntityFramework_Project.Mapping
             builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
 
             builder.Property(x => x.CreationDate).HasColumnName("CreatedDate");
+
+
+            builder.HasOne(x => x.Category)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.CategoryId);
         }
     }
 }

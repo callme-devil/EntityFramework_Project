@@ -8,6 +8,7 @@ namespace EntityFramework_Project.Context
     {
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public ShopContext(DbContextOptions <ShopContext> options): base(options)
         {
@@ -18,6 +19,7 @@ namespace EntityFramework_Project.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProductMapping());
+            modelBuilder.ApplyConfiguration(new ProductCategoryMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

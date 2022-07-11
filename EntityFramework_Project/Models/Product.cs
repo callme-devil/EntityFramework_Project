@@ -7,7 +7,7 @@ namespace EntityFramework_Project.Models
     public class Product
     {
         //[Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
         //[Required]
         //[MaxLength(250)]
         //[MinLength(2)]
@@ -19,6 +19,10 @@ namespace EntityFramework_Project.Models
         public DateTime CreationDate { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public ProductCategory Category { get; set; }
 
 
         public Product(string name, double unitPrice)
