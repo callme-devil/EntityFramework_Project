@@ -1,4 +1,5 @@
-﻿using EntityFramework_Project.Models;
+﻿using EntityFramework_Project.Mapping;
+using EntityFramework_Project.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntityFramework_Project.Context
@@ -13,5 +14,11 @@ namespace EntityFramework_Project.Context
             
         }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProductMapping());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
